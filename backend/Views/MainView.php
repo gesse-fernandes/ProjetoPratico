@@ -3,7 +3,7 @@
 namespace backend\Views;
 
 class MainView{
-    public function render($fileName)
+    public static function render($fileName)
     {
         include('pages/'.$fileName. '.php');
     }
