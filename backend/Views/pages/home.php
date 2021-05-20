@@ -9,7 +9,7 @@ include('includes/sidebar.php');
             $p  = $_POST['pesquisar'] ?? null;
 
             if (isset($p)) {
-                $lista = $noticia->Pesquisar($p);
+                $lista = \backend\Models\ProdutosModels::pesquisar($p);
                 if ($lista) {
                     $imagem = $lista['imagem']; ?>
                     <div class="col-lg-4 mb-3">
@@ -18,13 +18,24 @@ include('includes/sidebar.php');
 
 
                             <div class="card-body">
-                                <h5 class="card-title"><strong><?php echo $lista['titulo']; ?></strong></h5>
+                                <h5 class="card-title">
+                                    <p>Nome: <?php echo $lista['nomeProduto']; ?></p>
+                                </h5>
                                 <p class="card-text">
-                                    <?php echo $lista['conteudo']; ?>
+                                    Preço R$: <?php echo $lista['preco']; ?>
+                                </p>
+                                <p class="card-text">
+                                    Descrição: <?php echo $lista['descricao']; ?>
                                 </p>
                                 <div class="d-flex justify-content-between">
-                                    <a href="excluir.php?id=<?php echo $lista['id']; ?>" class="btn btn-danger">Deletar notícia</a>
-                                    <a href="editar.php?id=<?php echo $lista['id']; ?>" class="btn btn-primary">Editar notícia</a>
+                                    <?php
+                                    if (isset($_SESSION['login'])) {
+                                    ?>
+                                        <a href="excluir.php?id=<?php echo $id; ?>" class="btn btn-danger">Deletar produto</a>
+                                        <a href="editar.php?id=<?php echo $id; ?>" class="btn btn-primary">Editar produto</a>
+                                    <?php
+                                    }
+                                    ?>
                                 </div>
                             </div>
                             <!--card-body-->
@@ -33,7 +44,8 @@ include('includes/sidebar.php');
                     </div>
                     <?php
                 } else {
-                    echo "não existe essa noticia!";
+                 \backend\Utilidades::alerta("Não existe esse produto cadastrado!!");
+                 \backend\Utilidades::redirect(INCLUDE_PATH);
                 }
             } else {
                 $lista = \backend\Models\ProdutosModels::listarProdutos();
@@ -87,7 +99,7 @@ include('includes/sidebar.php');
                             <div class="card-body">
 
                                 <p class="card-text text-right">
-                                    Nenhum conteudo a ser exibido cadastre uma noticia
+                                    Nenhum conteudo a ser exibido cadastre um produto
                                 </p>
 
                             </div>

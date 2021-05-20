@@ -24,7 +24,7 @@
             <div class="collapse navbar-collapse" id="MenuNavbar">
                 <ul class="navbar-nav ml-auto mr-5">
                     <li class="nav-item active">
-                        <a class="nav-link" href="">Exibir Produtos</a>
+                        <a class="nav-link" href="home">Exibir Produtos</a>
                     </li>
                     <?php 
                      if(isset($_SESSION['login']))
@@ -47,7 +47,7 @@
                     ?>
                    
                 </ul>
-                <form class="form-inline my-2 my-lg-0" method="POST" action="index.php">
+                <form class="form-inline my-2 my-lg-0" method="POST" action="home">
                     <input class="form-control mr-sm-2" name="pesquisar" type="search" placeholder="Pesquisar" aria-label="Pesquisar">
                     <button class="btn btn-success my-2 my-sm-0" " type=" submit">Pesquisar</button>
                 </form>

@@ -27,4 +27,18 @@ class ProdutosModels
             return array();
         }
     }
+
+    public static function pesquisar($nome)
+    {
+        $pdo = \backend\Mysql::conectar();
+        $sql = $pdo->prepare("SELECT * FROM produto where nomeProduto like '%$nome%'");
+        $sql->execute();
+        if($sql->rowCount() > 0)
+        {
+            return $sql->fetch();
+        }
+        else{
+            return "";
+        }
+    }
 }
