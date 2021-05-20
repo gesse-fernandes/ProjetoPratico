@@ -10,6 +10,7 @@ include('includes/sidebar.php');
 
             if (isset($p)) {
                 $lista = \backend\Models\ProdutosModels::pesquisar($p);
+              
                 if ($lista) {
                     $imagem = $lista['imagem']; ?>
                     <div class="col-lg-4 mb-3">
@@ -31,7 +32,7 @@ include('includes/sidebar.php');
                                     <?php
                                     if (isset($_SESSION['login'])) {
                                     ?>
-                                        <a href="produtos?id=<?php echo $id ?>" class="btn btn-primary">Editar produto</a>
+                                        <a href="produtos?id=<?php echo $lista['id']; ?>" class="btn btn-primary">Editar produto</a>
                                     <?php
                                     }
                                     ?>
