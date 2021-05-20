@@ -26,9 +26,26 @@
                     <li class="nav-item active">
                         <a class="nav-link" href="">Exibir Produtos</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="login">login</a>
+                    <?php 
+                     if(isset($_SESSION['login']))
+                     {
+                        ?>
+                        <li class="nav-item">
+                        <a class="nav-link" href='produtos'>cadastrar Produtos</a>
                     </li>
+                    <li class="nav-item" >
+                         <a class='nav-link'  href='<?php echo INCLUDE_PATH ?>?loggout'>loggout</a>
+                    </li>
+                    <?php
+                     }else{
+                         ?>
+                         <li class="nav-item">
+                        <a class="nav-link" href="login">Login</a>
+                    </li>
+                    <?php
+                     }
+                    ?>
+                   
                 </ul>
                 <form class="form-inline my-2 my-lg-0" method="POST" action="index.php">
                     <input class="form-control mr-sm-2" name="pesquisar" type="search" placeholder="Pesquisar" aria-label="Pesquisar">

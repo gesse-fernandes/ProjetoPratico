@@ -1,6 +1,6 @@
 <?php
 
-namespace DankiCode;
+namespace backend;
 
 class Bcrypt
 {

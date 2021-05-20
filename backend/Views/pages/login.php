@@ -29,9 +29,9 @@
                     <span>Não possui conta? Cadastre-se <a href="usuario">aqui</a></span>
                 </div>
                 <div class="d-flex justify-content-end">
-                    <button type="submit" name="acao" class="btn btn-success">Entrar</button>
+                    <input type="submit" name="acao" class="btn btn-success" value="Entrar">
                 </div>
-                <input type="hidden" name="login">
+                <input type="hidden" name="entrar">
             </form>
         </div>
     </section>

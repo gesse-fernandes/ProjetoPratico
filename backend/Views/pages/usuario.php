@@ -16,24 +16,24 @@
     <section id="login">
         <div class="jumbotron">
             <h1 class="display-4">Realizar Cadastro</h1>
-            <form class="mt-5" action="Back-end/cadastrarUser.php" method="POST">
+            <form class="mt-5" method="POST">
                 <div class="form-group">
                     <label for="nome">Nome</label>
                     <input type="text" class="form-control" id="nome" name="nome" aria-describedby="email" placeholder="nome..">
 
                 </div>
                 <div class="form-group">
-                <label for="login">Nome do login</label>
-                <input type="text" class="form-control" name="login" placeholder="nome do login">
+                    <label for="login">Nome do login</label>
+                    <input type="text" class="form-control" name="login" placeholder="nome do login">
                 </div>
                 <div class="form-group">
-                    <label for="senha">Senha</label> 
+                    <label for="senha">Senha</label>
                     <input type="password" class="form-control" name="senha" id="senha" placeholder="Sua senha">
                 </div>
                 <div class="d-flex justify-content-end">
-                    <button type="submit" name="acao" class="btn btn-success">Cadastrar</button>
+                    <input type="submit" name="acao" class="btn btn-success" value="Cadastrar">
                 </div>
-                <input type="hidden" name="registrar">
+                <input type="hidden" name="registrar" value="registrar">
             </form>
         </div>
     </section>
