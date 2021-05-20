@@ -31,8 +31,8 @@ include('includes/sidebar.php');
                                     <?php
                                     if (isset($_SESSION['login'])) {
                                     ?>
-                                        <a href="excluir.php?id=<?php echo $id; ?>" class="btn btn-danger">Deletar produto</a>
-                                        <a href="editar.php?id=<?php echo $id; ?>" class="btn btn-primary">Editar produto</a>
+                                        <a href="excluirProduto?id=<?php echo $id; ?>" class="btn btn-danger">Deletar produto</a>
+                                        <a href="editarProduto?id=<?php echo $id; ?>" class="btn btn-primary">Editar produto</a>
                                     <?php
                                     }
                                     ?>
@@ -44,8 +44,8 @@ include('includes/sidebar.php');
                     </div>
                     <?php
                 } else {
-                 \backend\Utilidades::alerta("Não existe esse produto cadastrado!!");
-                 \backend\Utilidades::redirect(INCLUDE_PATH);
+                    \backend\Utilidades::alerta("Não existe esse produto cadastrado!!");
+                    \backend\Utilidades::redirect(INCLUDE_PATH);
                 }
             } else {
                 $lista = \backend\Models\ProdutosModels::listarProdutos();
@@ -75,8 +75,14 @@ include('includes/sidebar.php');
                                         <?php
                                         if (isset($_SESSION['login'])) {
                                         ?>
-                                            <a href="excluir.php?id=<?php echo $id; ?>" class="btn btn-danger">Deletar produto</a>
-                                            <a href="editar.php?id=<?php echo $id; ?>" class="btn btn-primary">Editar produto</a>
+                                            <form method="POST">
+                                                <input type="text" name="idDelete" value="<?php echo $id ?>" style="display: none;">
+                                                <input type="hidden" name="del">
+                                                <a href="produtos?id<?php echo $id; ?>" class="btn btn-danger">Deletar produto</a>
+                                            </form>
+                                            <a href="produtos?id=<?php echo $id ?>" class="btn btn-primary">Editar produto</a>
+
+
                                         <?php
                                         }
                                         ?>
