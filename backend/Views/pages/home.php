@@ -31,8 +31,7 @@ include('includes/sidebar.php');
                                     <?php
                                     if (isset($_SESSION['login'])) {
                                     ?>
-                                        <a href="excluirProduto?id=<?php echo $id; ?>" class="btn btn-danger">Deletar produto</a>
-                                        <a href="editarProduto?id=<?php echo $id; ?>" class="btn btn-primary">Editar produto</a>
+                                        <a href="produtos?id=<?php echo $id ?>" class="btn btn-primary">Editar produto</a>
                                     <?php
                                     }
                                     ?>
@@ -75,11 +74,7 @@ include('includes/sidebar.php');
                                         <?php
                                         if (isset($_SESSION['login'])) {
                                         ?>
-                                            <form method="POST">
-                                                <input type="text" name="idDelete" value="<?php echo $id ?>" style="display: none;">
-                                                <input type="hidden" name="del">
-                                                <a href="produtos?id<?php echo $id; ?>" class="btn btn-danger">Deletar produto</a>
-                                            </form>
+
                                             <a href="produtos?id=<?php echo $id ?>" class="btn btn-primary">Editar produto</a>
 
 

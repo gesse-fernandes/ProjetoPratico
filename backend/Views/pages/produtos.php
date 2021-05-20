@@ -4,12 +4,10 @@ if (isset($_GET['id'])) {
     $id = $_GET['id'];
 }
 if (isset($id)) {
-    if(\backend\Models\ProdutosModels::existeId($id))
-    {
+    if (\backend\Models\ProdutosModels::existeId($id)) {
         $produtos = \backend\Models\ProdutosModels::selecionaId($id);
-        
     }
-    
+
 ?>
     <main>
         <div class="container">
@@ -22,27 +20,29 @@ if (isset($id)) {
                                 <div class="form-group">
                                     <input type="text" name="idProd" value="<?php echo $produtos['id'] ?>" style="display: none;">
                                     <label for="nome">Nome</label>
-                                    <input type="text" name="nome" value="<?php echo $produtos['nomeProduto']; ?>" class="form-control" id="nome">
+                                    <input type="text" placeholder="Nome do produto" name="nome" value="<?php echo $produtos['nomeProduto']; ?>" class="form-control" id="nome">
 
                                 </div>
 
                                 <div class="form-group">
                                     <label for="descricao">Descrição</label>
-                                    <textarea class="form-control" name="descricao"  id="descricao" rows="3" placeholder="Uma descrição do produto"><?php echo $produtos['descricao'];?></textarea>
+                                    <textarea class="form-control" name="descricao" id="descricao" rows="3" placeholder="Uma descrição do produto"><?php echo $produtos['descricao']; ?></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label for="preço">Preço R$</label>
-                                    <input type="number" value="<?php echo $produtos['preco'] ?>" class="form-control" name="preco" id="preco" min="2.0" step="0.20">
+                                    <input type="number" placeholder="Insira o preço do produto" value="<?php echo $produtos['preco'] ?>" class="form-control" name="preco" id="preco" min="2.0" step="0.20">
                                 </div>
                                 <div class="form-group">
                                     <label for="imagem">Fazer upload de imagem</label>
-                                    <input type="file" class="form-control-file" value="<?php echo INCLUDE_PATH ?>uploads/<?php echo $produtos['imagem'];?>" name="imagem" id="imagem">
+                                    <input type="file" class="form-control-file" value="<?php echo INCLUDE_PATH ?>uploads/<?php echo $produtos['imagem']; ?>" name="imagem" id="imagem">
                                     <small class="text-danger">Tamanho máximo: 16MB</small>
                                 </div>
                                 <div class="d-flex justify-content-end">
                                     <input type="submit" value="Editar" name="acao" class="btn btn-primary" />
+                                    <div style="padding: 10px;"></div>
+                                    <input type="submit" value="Deletar" name="deletar" class="btn btn-danger" />
                                 </div>
-                                <input type="hidden" name="editar">
+
                             </form>
                         </div>
                     </div>
@@ -63,7 +63,7 @@ if (isset($id)) {
                             <form method="post" enctype="multipart/form-data">
                                 <div class="form-group">
                                     <label for="nome">Nome</label>
-                                    <input type="text" name="nome" class="form-control" id="nome">
+                                    <input type="text" placeholder="Nome do produto" name="nome" class="form-control" id="nome">
 
                                 </div>
 
@@ -73,7 +73,7 @@ if (isset($id)) {
                                 </div>
                                 <div class="form-group">
                                     <label for="preço">Preço R$</label>
-                                    <input type="number" class="form-control" name="preco" id="preco" min="2.0" step="0.20">
+                                    <input type="number" placeholder="Preço do produto" class="form-control" name="preco" id="preco" min="2.0" step="0.20">
                                 </div>
                                 <div class="form-group">
                                     <label for="imagem">Fazer upload de imagem</label>
