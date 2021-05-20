@@ -10,7 +10,7 @@ include('includes/sidebar.php');
 
             if (isset($p)) {
                 $lista = \backend\Models\ProdutosModels::pesquisar($p);
-              
+
                 if ($lista) {
                     $imagem = $lista['imagem']; ?>
                     <div class="col-lg-4 mb-3">
