@@ -15,4 +15,16 @@ class ProdutosModels
         $sql->bindValue(":preco",$preco);
         $sql->execute();
     }
+
+    public static function listarProdutos()
+    {
+        $pdo = \backend\Mysql::conectar();
+        $sql = $pdo->query("SELECT * FROM  produto");
+        if($sql-> rowCount() > 0)
+        {
+            return $sql->fetchAll();
+        }else{
+            return array();
+        }
+    }
 }
